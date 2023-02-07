@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.4"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Easy_Vulkan: Исходный файл C:/Users/timur/Desktop/Easy_Vulkan/EV_Instance.h</title>
+<title>Easy_Vulkan: Исходный файл /home/mrognor/Desktop/Easy_Vulkan/EV_Instance.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr id="projectrow">
-  <td id="projectalign">
-   <div id="projectname">Easy_Vulkan<span id="projectnumber">&#160;0.0.1</span>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Easy_Vulkan
+   &#160;<span id="projectnumber">0.0.1</span>
    </div>
    <div id="projectbrief">Simple C++ vulkan library</div>
   </td>
@@ -31,22 +32,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.4 -->
+<!-- Создано системой Doxygen 1.8.17 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Поиск');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -68,66 +68,69 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">EV_Instance.h</div></div>
+  <div class="headertitle">
+<div class="title">EV_Instance.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;EV_Classes.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;EV_Functions.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>EV</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_e_v_1_1_e_v___instance.html">   15</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_e_v_1_1_e_v___instance.html">EV_Instance</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        VkInstance VulkanInstance;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::vector&lt;const char*&gt; RequiredExtensions;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::vector&lt;const char*&gt; RequiredValidationLayers;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        VkDebugUtilsMessageSeverityFlagsEXT DebugMessengerSeverityFlags = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        VkDebugUtilsMessageTypeFlagsEXT DebugMessengerMessageTypeFlags = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        PFN_vkDebugUtilsMessengerCallbackEXT DebugMessengerCallback = EV::EV_DefaultValidationLayersCallback;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        VkDebugUtilsMessengerEXT DebugMessenger;  </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">bool</span> IsCreated = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">void</span> CreateDebugMessenger(<span class="keyword">const</span> VkDebugUtilsMessengerCreateInfoEXT&amp; debugMessengerCreateInfo);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        VkInstance* GetVkInstance() {<span class="keywordflow">return</span> &amp;VulkanInstance;}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        std::vector&lt;const char*&gt; GetRequiredExtensions() { <span class="keywordflow">return</span> RequiredExtensions; }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        std::vector&lt;const char*&gt; GetRequiredValidationLayers() { <span class="keywordflow">return</span> RequiredValidationLayers; }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::vector&lt;VkExtensionProperties&gt; GetAvailableExtensions();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        std::vector&lt;VkLayerProperties&gt; GetAvailableValidationLayers();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">   47</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">GetIsCreated</a>() { <span class="keywordflow">return</span> IsCreated; }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> AddRequiredExtension(<span class="keyword">const</span> <span class="keywordtype">char</span>* requiredExtension) { RequiredExtensions.push_back(requiredExtension); };</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> AddRequiredExtensions(<span class="keyword">const</span> std::vector&lt;const char*&gt;&amp; requiredExtensions) { RequiredExtensions.insert(RequiredExtensions.end(), requiredExtensions.begin(), requiredExtensions.end()); };</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">void</span> AddRequiredValidationLayer(<span class="keyword">const</span> <span class="keywordtype">char</span>* requiredValidationLayer) { RequiredValidationLayers.push_back(requiredValidationLayer); };</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">void</span> AddRequiredValidationLayers(<span class="keyword">const</span> std::vector&lt;const char*&gt;&amp; requiredValidationLayers) { RequiredValidationLayers.insert(RequiredValidationLayers.end(), requiredValidationLayers.begin(), requiredValidationLayers.end()); };</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> SetDebugMessengerSeverityFlags(VkDebugUtilsMessageSeverityFlagsEXT debugMessengerSeverityFlags ) { DebugMessengerSeverityFlags = debugMessengerSeverityFlags; }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">void</span> SetDebugMessengerMessageTypeFlags(VkDebugUtilsMessageTypeFlagsEXT debugMessengerMessageTypeFlags) { DebugMessengerMessageTypeFlags = debugMessengerMessageTypeFlags; }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span> SetDebugMessengerCallback(PFN_vkDebugUtilsMessengerCallbackEXT debugMessengerCallback) { DebugMessengerCallback = debugMessengerCallback; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">void</span> Create();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">void</span> Destroy();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    };</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="ttc" id="aclass_e_v_1_1_e_v___instance_html"><div class="ttname"><a href="class_e_v_1_1_e_v___instance.html">EV::EV_Instance</a></div><div class="ttdoc">A class for communication between the program and vulkan library.</div><div class="ttdef"><b>Definition:</b> EV_Instance.h:16</div></div>
-<div class="ttc" id="aclass_e_v_1_1_e_v___instance_html_a3f875a43cb1b39c364900ddc4befc29d"><div class="ttname"><a href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">EV::EV_Instance::GetIsCreated</a></div><div class="ttdeci">bool GetIsCreated()</div><div class="ttdoc">Return true if VkInstance was created and was not destroyed yet. Otherwise return false.</div><div class="ttdef"><b>Definition:</b> EV_Instance.h:47</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;EV_Classes.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;EV_Functions.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>EV</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_e_v_1_1_e_v___instance.html">   15</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_e_v_1_1_e_v___instance.html">EV_Instance</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        VkInstance VulkanInstance;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::vector&lt;const char*&gt; RequiredExtensions;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::vector&lt;const char*&gt; RequiredValidationLayers;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        VkDebugUtilsMessageSeverityFlagsEXT DebugMessengerSeverityFlags = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        VkDebugUtilsMessageTypeFlagsEXT DebugMessengerMessageTypeFlags = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        PFN_vkDebugUtilsMessengerCallbackEXT DebugMessengerCallback = EV::EV_DefaultValidationLayersCallback;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">// Useless in release mode. Put inside ifndef</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        VkDebugUtilsMessengerEXT DebugMessenger;  </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">bool</span> IsCreated = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> CreateDebugMessenger(<span class="keyword">const</span> VkDebugUtilsMessengerCreateInfoEXT&amp; debugMessengerCreateInfo);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        VkInstance* GetVkInstance() {<span class="keywordflow">return</span> &amp;VulkanInstance;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::vector&lt;const char*&gt; GetRequiredExtensions() { <span class="keywordflow">return</span> RequiredExtensions; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::vector&lt;const char*&gt; GetRequiredValidationLayers() { <span class="keywordflow">return</span> RequiredValidationLayers; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::vector&lt;VkExtensionProperties&gt; GetAvailableExtensions();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::vector&lt;VkLayerProperties&gt; GetAvailableValidationLayers();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">   47</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">GetIsCreated</a>() { <span class="keywordflow">return</span> IsCreated; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> AddRequiredExtension(<span class="keyword">const</span> <span class="keywordtype">char</span>* requiredExtension) { RequiredExtensions.push_back(requiredExtension); };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> AddRequiredExtensions(<span class="keyword">const</span> std::vector&lt;const char*&gt;&amp; requiredExtensions) { RequiredExtensions.insert(RequiredExtensions.end(), requiredExtensions.begin(), requiredExtensions.end()); };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">void</span> AddRequiredValidationLayer(<span class="keyword">const</span> <span class="keywordtype">char</span>* requiredValidationLayer) { RequiredValidationLayers.push_back(requiredValidationLayer); };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> AddRequiredValidationLayers(<span class="keyword">const</span> std::vector&lt;const char*&gt;&amp; requiredValidationLayers) { RequiredValidationLayers.insert(RequiredValidationLayers.end(), requiredValidationLayers.begin(), requiredValidationLayers.end()); };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> SetDebugMessengerSeverityFlags(VkDebugUtilsMessageSeverityFlagsEXT debugMessengerSeverityFlags ) { DebugMessengerSeverityFlags = debugMessengerSeverityFlags; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> SetDebugMessengerMessageTypeFlags(VkDebugUtilsMessageTypeFlagsEXT debugMessengerMessageTypeFlags) { DebugMessengerMessageTypeFlags = debugMessengerMessageTypeFlags; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> SetDebugMessengerCallback(PFN_vkDebugUtilsMessengerCallbackEXT debugMessengerCallback) { DebugMessengerCallback = debugMessengerCallback; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> Create();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> Destroy();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_e_v_1_1_e_v___instance_html"><div class="ttname"><a href="class_e_v_1_1_e_v___instance.html">EV::EV_Instance</a></div><div class="ttdoc">A class for communication between the program and vulkan library.</div><div class="ttdef"><b>Definition:</b> EV_Instance.h:15</div></div>
+<div class="ttc" id="aclass_e_v_1_1_e_v___instance_html_a3f875a43cb1b39c364900ddc4befc29d"><div class="ttname"><a href="class_e_v_1_1_e_v___instance.html#a3f875a43cb1b39c364900ddc4befc29d">EV::EV_Instance::GetIsCreated</a></div><div class="ttdeci">bool GetIsCreated()</div><div class="ttdoc">Return true if VkInstance was created and was not destroyed yet. Otherwise return false.</div><div class="ttdef"><b>Definition:</b> EV_Instance.h:47</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>
