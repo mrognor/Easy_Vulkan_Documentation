@@ -1,0 +1,70 @@
+\hypertarget{class_e_v_1_1_e_v___instance}{}\doxysection{Класс EV\+::EV\+\_\+\+Instance}
+\label{class_e_v_1_1_e_v___instance}\index{EV::EV\_Instance@{EV::EV\_Instance}}
+
+
+A class for communication between the program and vulkan library.  
+
+
+
+
+{\ttfamily \#include $<$EV\+\_\+\+Instance.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_abe64f1e5f6e68491143227c7aaab41ad}\label{class_e_v_1_1_e_v___instance_abe64f1e5f6e68491143227c7aaab41ad}} 
+Vk\+Instance $\ast$ {\bfseries Get\+Vk\+Instance} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_acb5b73a27ba96b79a54cf66154c6eb44}\label{class_e_v_1_1_e_v___instance_acb5b73a27ba96b79a54cf66154c6eb44}} 
+std\+::vector$<$ const char $\ast$ $>$ {\bfseries Get\+Required\+Extensions} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a82efb83c42ab02e31bb84107ddde72b8}\label{class_e_v_1_1_e_v___instance_a82efb83c42ab02e31bb84107ddde72b8}} 
+std\+::vector$<$ const char $\ast$ $>$ {\bfseries Get\+Required\+Validation\+Layers} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_aec9724f801f1cdb4fb5b5e55367d77a1}\label{class_e_v_1_1_e_v___instance_aec9724f801f1cdb4fb5b5e55367d77a1}} 
+std\+::vector$<$ Vk\+Extension\+Properties $>$ {\bfseries Get\+Available\+Extensions} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a111b565dfd04b4bf874ad4cf9904d9ee}\label{class_e_v_1_1_e_v___instance_a111b565dfd04b4bf874ad4cf9904d9ee}} 
+std\+::vector$<$ Vk\+Layer\+Properties $>$ {\bfseries Get\+Available\+Validation\+Layers} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a3f875a43cb1b39c364900ddc4befc29d}\label{class_e_v_1_1_e_v___instance_a3f875a43cb1b39c364900ddc4befc29d}} 
+bool {\bfseries Get\+Is\+Created} ()
+\begin{DoxyCompactList}\small\item\em Return true if Vk\+Instance was created and was not destroyed yet. Otherwise return false. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_ae238c6e1ccd5f135408c925b226314e4}\label{class_e_v_1_1_e_v___instance_ae238c6e1ccd5f135408c925b226314e4}} 
+void {\bfseries Add\+Required\+Extension} (const char $\ast$required\+Extension)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a1fbb916bf724bc6c4f3de8541bb35ab3}\label{class_e_v_1_1_e_v___instance_a1fbb916bf724bc6c4f3de8541bb35ab3}} 
+void {\bfseries Add\+Required\+Extensions} (const std\+::vector$<$ const char $\ast$ $>$ \&required\+Extensions)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a55b3e69a1cca9921b3111a7dd0396d86}\label{class_e_v_1_1_e_v___instance_a55b3e69a1cca9921b3111a7dd0396d86}} 
+void {\bfseries Add\+Required\+Validation\+Layer} (const char $\ast$required\+Validation\+Layer)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_aa5dcf033c6feeeda34aadf9419f140c1}\label{class_e_v_1_1_e_v___instance_aa5dcf033c6feeeda34aadf9419f140c1}} 
+void {\bfseries Add\+Required\+Validation\+Layers} (const std\+::vector$<$ const char $\ast$ $>$ \&required\+Validation\+Layers)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_ae298a31e4bc537f78167cf1935821368}\label{class_e_v_1_1_e_v___instance_ae298a31e4bc537f78167cf1935821368}} 
+void {\bfseries Set\+Debug\+Messenger\+Severity\+Flags} (Vk\+Debug\+Utils\+Message\+Severity\+Flags\+EXT debug\+Messenger\+Severity\+Flags)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a3f0e927b74ac31a70e9b216b937dfc45}\label{class_e_v_1_1_e_v___instance_a3f0e927b74ac31a70e9b216b937dfc45}} 
+void {\bfseries Set\+Debug\+Messenger\+Message\+Type\+Flags} (Vk\+Debug\+Utils\+Message\+Type\+Flags\+EXT debug\+Messenger\+Message\+Type\+Flags)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_aaca7af78105a0ee508c180999d37f273}\label{class_e_v_1_1_e_v___instance_aaca7af78105a0ee508c180999d37f273}} 
+void {\bfseries Set\+Debug\+Messenger\+Callback} (PFN\+\_\+vk\+Debug\+Utils\+Messenger\+Callback\+EXT debug\+Messenger\+Callback)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_aca59f8d3a4396013aa6cdf7d5a17b238}\label{class_e_v_1_1_e_v___instance_aca59f8d3a4396013aa6cdf7d5a17b238}} 
+void {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___instance_a02986159e177c7c0351ae6399fb5bb08}\label{class_e_v_1_1_e_v___instance_a02986159e177c7c0351ae6399fb5bb08}} 
+void {\bfseries Destroy} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+A class for communication between the program and vulkan library. 
+
+The instance is the connection between your application and the Vulkan library and creating it involves specifying some details about your application to the driver. 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/timur/\+Desktop/\+Easy\+\_\+\+Vulkan/EV\+\_\+\+Instance.\+h\item 
+C\+:/\+Users/timur/\+Desktop/\+Easy\+\_\+\+Vulkan/EV\+\_\+\+Instance.\+cpp\end{DoxyCompactItemize}

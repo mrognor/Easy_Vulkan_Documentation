@@ -1,0 +1,49 @@
+\hypertarget{_e_v___window_8h_source}{}\doxysection{EV\+\_\+\+Window.\+h}
+\label{_e_v___window_8h_source}\index{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Window.h@{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once }}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}EV\_Classes.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}EV\_Instance.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }EV}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_v_1_1_e_v___window}{EV\_Window}}}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10     \textcolor{keyword}{private}:}
+\DoxyCodeLine{11         \mbox{\hyperlink{class_e_v_1_1_e_v___instance}{EV\_Instance}}* Instance = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{12         }
+\DoxyCodeLine{13         GLFWwindow* GLFW\_Window;}
+\DoxyCodeLine{14         \textcolor{comment}{// Cross-\/platform connection between os window and vulkan lib}}
+\DoxyCodeLine{15         VkSurfaceKHR WindowSurface;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         \textcolor{keywordtype}{int} WindowWidth = 700;}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} WindowHeight = 500;}
+\DoxyCodeLine{19         std::string WindowTitle = \textcolor{stringliteral}{"{}Easy Vulkan App"{}};}
+\DoxyCodeLine{20         \textcolor{keywordtype}{bool} IsCreated = \textcolor{keyword}{false}; }
+\DoxyCodeLine{21     \textcolor{keyword}{public}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_e_v_1_1_e_v___window}{EV\_Window}}() \{ glfwInit(); \textcolor{comment}{/* Init window library */}\}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         GLFWwindow* GetGLFWWindow() \{ \textcolor{keywordflow}{return} GLFW\_Window; \}}
+\DoxyCodeLine{25         \textcolor{keywordtype}{int} GetWindowWidth() \{ \textcolor{keywordflow}{return} WindowWidth; \}}
+\DoxyCodeLine{26         \textcolor{keywordtype}{int} GetWindowHeight() \{ \textcolor{keywordflow}{return} WindowHeight; \}}
+\DoxyCodeLine{27         std::string GetWindowTitle() \{ \textcolor{keywordflow}{return} WindowTitle; \}}
+\DoxyCodeLine{28         std::vector<const char*> GetRequiredExtensions();}
+\DoxyCodeLine{29         \textcolor{keywordtype}{bool} GetIsCreated() \{ \textcolor{keywordflow}{return} IsCreated; \}}
+\DoxyCodeLine{30         VkSurfaceKHR* GetWindowSurface() \{ \textcolor{keywordflow}{return} \&WindowSurface; \}}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} SetWindowWidth(\textcolor{keywordtype}{int} windowWidth) \{ WindowWidth = windowWidth; \}}
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} SetWindowHeight(\textcolor{keywordtype}{int} windowHeight) \{ WindowHeight = windowHeight; \}}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} SetWindowTitle(std::string windowTitle) \{ WindowTitle = windowTitle; \}}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} SetInstance(\mbox{\hyperlink{class_e_v_1_1_e_v___instance}{EV\_Instance}}* instance) \{ Instance = instance; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} Create();}
+\DoxyCodeLine{38         \textcolor{keywordtype}{void} Tick();}
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} Destroy(); }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_v_1_1_e_v___window_a3e89d89d2ccaa1797e7c948adbe72967}{SetWindowHint}}(\textcolor{keywordtype}{int} hint, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{50     \};}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}

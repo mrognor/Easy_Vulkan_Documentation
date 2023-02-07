@@ -1,0 +1,33 @@
+\hypertarget{_e_v___functions_8h_source}{}\doxysection{EV\+\_\+\+Functions.\+h}
+\label{_e_v___functions_8h_source}\index{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Functions.h@{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Functions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}EV\_Classes.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }EV}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{10     \textcolor{keyword}{static} VKAPI\_ATTR VkBool32 VKAPI\_CALL EV\_DefaultValidationLayersCallback(}
+\DoxyCodeLine{11     VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,}
+\DoxyCodeLine{12     VkDebugUtilsMessageTypeFlagsEXT messageType,}
+\DoxyCodeLine{13     \textcolor{keyword}{const} VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void}* pUserData)}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         \textcolor{keywordflow}{if} (messageSeverity >= VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_WARNING\_BIT\_EXT) }
+\DoxyCodeLine{17             std::cerr << \textcolor{stringliteral}{"{}From validation layer: "{}} << pCallbackData-\/>pMessage << std::endl;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} VK\_FALSE;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{comment}{// Function to print info about device queues. Created to let you get more info}}
+\DoxyCodeLine{23     \textcolor{comment}{// Prefix puts before every new line. Allow yoy to make good looking output}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} PrintVkPhysicalDeviceQueuesInfo(\textcolor{keyword}{const} VkPhysicalDevice\& physicalDevice, VkSurfaceKHR* windowSurface, std::string prefix = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{comment}{// Function to read file in binary mode and return vector of chars}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} ReadFileBinary(\textcolor{keyword}{const} std::string\& fileName, std::vector<char>\& fileVec);}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}

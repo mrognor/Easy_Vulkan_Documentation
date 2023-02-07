@@ -1,0 +1,71 @@
+\hypertarget{class_e_v_1_1_e_v___device}{}\doxysection{Класс EV\+::EV\+\_\+\+Device}
+\label{class_e_v_1_1_e_v___device}\index{EV::EV\_Device@{EV::EV\_Device}}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a8872710b13b1970e73374576872cc40f}\label{class_e_v_1_1_e_v___device_a8872710b13b1970e73374576872cc40f}} 
+std\+::vector$<$ Vk\+Physical\+Device $>$ {\bfseries Get\+Physical\+Devices} ()
+\begin{DoxyCompactList}\small\item\em This function return vector of physical devices with vulkan support. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a4033d16bff0f1ac96062eb599125a6e1}\label{class_e_v_1_1_e_v___device_a4033d16bff0f1ac96062eb599125a6e1}} 
+Vk\+Physical\+Device $\ast$ {\bfseries Get\+Picked\+Physical\+Device} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a378408925341f4ff8beda8743c5caf41}\label{class_e_v_1_1_e_v___device_a378408925341f4ff8beda8743c5caf41}} 
+Vk\+Device $\ast$ {\bfseries Get\+Logical\+Device} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a692be57d806a07f4e6a0aa815d8c3ddb}\label{class_e_v_1_1_e_v___device_a692be57d806a07f4e6a0aa815d8c3ddb}} 
+Vk\+Queue $\ast$ {\bfseries Get\+Graphics\+Queue} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a8bcb37c13725b90fe45e64efe007abb2}\label{class_e_v_1_1_e_v___device_a8bcb37c13725b90fe45e64efe007abb2}} 
+std\+::vector$<$ Vk\+Extension\+Properties $>$ {\bfseries Get\+Available\+Extensions} (const Vk\+Physical\+Device \&physical\+Device)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a4654ffba6c6ba9ee032ebec99f2019f1}\label{class_e_v_1_1_e_v___device_a4654ffba6c6ba9ee032ebec99f2019f1}} 
+std\+::vector$<$ const char $\ast$ $>$ {\bfseries Get\+Required\+Extensions} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a08bc7bbca868638783aa5e124e92e7cd}\label{class_e_v_1_1_e_v___device_a08bc7bbca868638783aa5e124e92e7cd}} 
+bool {\bfseries Get\+Is\+Created} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_ae25707011028be868bd8d71d1a784dc0}\label{class_e_v_1_1_e_v___device_ae25707011028be868bd8d71d1a784dc0}} 
+uint32\+\_\+t {\bfseries Get\+Graphics\+Queue\+Index} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a7c72400e06ab3a6409da0760d577ec33}\label{class_e_v_1_1_e_v___device_a7c72400e06ab3a6409da0760d577ec33}} 
+uint32\+\_\+t {\bfseries Get\+Presentation\+Queue\+Index} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_ab75079e262b4a6b1d3909353d3ca61fb}\label{class_e_v_1_1_e_v___device_ab75079e262b4a6b1d3909353d3ca61fb}} 
+Vk\+Surface\+Capabilities\+KHR {\bfseries Get\+Window\+Surface\+Capabilities} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a6b5724d5e59933779f6d96707ca7d6fa}\label{class_e_v_1_1_e_v___device_a6b5724d5e59933779f6d96707ca7d6fa}} 
+std\+::vector$<$ Vk\+Surface\+Format\+KHR $>$ {\bfseries Get\+Window\+Surface\+Formats} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a5f1c294ad47526b4b4d3dc19b44af288}\label{class_e_v_1_1_e_v___device_a5f1c294ad47526b4b4d3dc19b44af288}} 
+std\+::vector$<$ Vk\+Present\+Mode\+KHR $>$ {\bfseries Get\+Window\+Surface\+Presentation\+Modes} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_aa1db6c623bb4018d5d3174d142a793f3}\label{class_e_v_1_1_e_v___device_aa1db6c623bb4018d5d3174d142a793f3}} 
+std\+::multimap$<$ int, Vk\+Physical\+Device $>$ {\bfseries Get\+Suitable\+Physical\+Devices} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_ac7d692d99669e23159d51b1b644db155}\label{class_e_v_1_1_e_v___device_ac7d692d99669e23159d51b1b644db155}} 
+void {\bfseries Add\+Required\+Extension} (const char $\ast$required\+Extension)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_aebbc30f45c817e5757f1b76c0faa4316}\label{class_e_v_1_1_e_v___device_aebbc30f45c817e5757f1b76c0faa4316}} 
+void {\bfseries Add\+Required\+Extensions} (const std\+::vector$<$ const char $\ast$ $>$ \&required\+Extensions)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a0cd1dc1a75defab4f2e39f69db680e61}\label{class_e_v_1_1_e_v___device_a0cd1dc1a75defab4f2e39f69db680e61}} 
+void {\bfseries Set\+Instance} (\mbox{\hyperlink{class_e_v_1_1_e_v___instance}{EV\+\_\+\+Instance}} $\ast$vulkan\+Instance)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a77d28bd10099eebd9095ba94033b2d52}\label{class_e_v_1_1_e_v___device_a77d28bd10099eebd9095ba94033b2d52}} 
+void {\bfseries Set\+Window} (\mbox{\hyperlink{class_e_v_1_1_e_v___window}{EV\+\_\+\+Window}} $\ast$window)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a906b79c9c4025c317bbd699592316f98}\label{class_e_v_1_1_e_v___device_a906b79c9c4025c317bbd699592316f98}} 
+void {\bfseries Set\+Physical\+Device} (uint32\+\_\+t device\+ID)
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a9052afedc3eeacde398682382cc891f2}\label{class_e_v_1_1_e_v___device_a9052afedc3eeacde398682382cc891f2}} 
+void {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{class_e_v_1_1_e_v___device_a465224b9b583aa4a65bc4fc5ba908fae}\label{class_e_v_1_1_e_v___device_a465224b9b583aa4a65bc4fc5ba908fae}} 
+void {\bfseries Destroy} ()
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/timur/\+Desktop/\+Easy\+\_\+\+Vulkan/EV\+\_\+\+Device.\+h\item 
+C\+:/\+Users/timur/\+Desktop/\+Easy\+\_\+\+Vulkan/EV\+\_\+\+Device.\+cpp\end{DoxyCompactItemize}

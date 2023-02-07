@@ -1,0 +1,198 @@
+\hypertarget{_e_v___graphics_pipeline_8h_source}{}\doxysection{EV\+\_\+\+Graphics\+Pipeline.\+h}
+\label{_e_v___graphics_pipeline_8h_source}\index{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_GraphicsPipeline.h@{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_GraphicsPipeline.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}EV\_Classes.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}EV\_Device.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}EV\_Functions.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_shader_info}{ShaderInfo}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     std::string FileName;}
+\DoxyCodeLine{10     VkShaderStageFlagBits ShaderType;}
+\DoxyCodeLine{11     std::string EntryPointFunctionName = \textcolor{stringliteral}{"{}main"{}};}
+\DoxyCodeLine{12     VkSpecializationInfo* SpecializationInfo = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }EV}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_v_1_1_e_v___graphics_pipeline}{EV\_GraphicsPipeline}}}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19     \textcolor{keyword}{private}:}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_e_v_1_1_e_v___device}{EV\_Device}}* Device = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{comment}{// Vector with all shader names and their types}}
+\DoxyCodeLine{23         std::vector<ShaderInfo> ShadersInfos;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{comment}{// Vector with all shader structs to create graphics pipeline}}
+\DoxyCodeLine{26         std::vector<VkPipelineShaderStageCreateInfo> pipelineShaderStageCreateInfos;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         \textcolor{comment}{// Vector with all pipeline dynamic states}}
+\DoxyCodeLine{29         std::vector<VkDynamicState> PipelineDynamicStates;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{comment}{// Variable to set pipeline geometry topology}}
+\DoxyCodeLine{32         VkPrimitiveTopology Topology = VK\_PRIMITIVE\_TOPOLOGY\_TRIANGLE\_LIST;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{// If you set the BreakTopology member to VK\_TRUE, then it's possible to break up lines and triangles in the \_STRIP }}
+\DoxyCodeLine{35         \textcolor{comment}{// topology modes by using a special index of 0xFFFF or 0xFFFFFFFF.}}
+\DoxyCodeLine{36         VkBool32 BreakTopology = VK\_FALSE;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{comment}{// If DepthClampEnable is set to VK\_TRUE, then fragments that are beyond the near and far planes}}
+\DoxyCodeLine{39         \textcolor{comment}{// are clamped to them as opposed to discarding them. This is useful in some special cases like shadow maps.}}
+\DoxyCodeLine{40         \textcolor{comment}{// Using this requires enabling a GPU feature.}}
+\DoxyCodeLine{41         VkBool32 DepthClampEnable = VK\_FALSE;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{comment}{// If RasterizerDiscardEnable is set to VK\_TRUE, then geometry never passes through the rasterizer stage. }}
+\DoxyCodeLine{44         \textcolor{comment}{// This basically disables any output to the framebuffer}}
+\DoxyCodeLine{45         VkBool32 RasterizerDisable = VK\_FALSE;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \textcolor{comment}{// The polygonMode determines how fragments are generated for geometry. The following modes are available:}}
+\DoxyCodeLine{48         \textcolor{comment}{// VK\_POLYGON\_MODE\_FILL: fill the area of the polygon with fragments}}
+\DoxyCodeLine{49         \textcolor{comment}{// VK\_POLYGON\_MODE\_LINE: polygon edges are drawn as lines}}
+\DoxyCodeLine{50         \textcolor{comment}{// VK\_POLYGON\_MODE\_POINT: polygon vertices are drawn as points}}
+\DoxyCodeLine{51         \textcolor{comment}{// Using any mode other than fill requires enabling a GPU feature fillModeNonSolid.}}
+\DoxyCodeLine{52         VkPolygonMode PolygonMode = VK\_POLYGON\_MODE\_FILL;}
+\DoxyCodeLine{53         }
+\DoxyCodeLine{54         \textcolor{comment}{// It describes the thickness of lines in terms of number of fragments. }}
+\DoxyCodeLine{55         \textcolor{comment}{// The maximum line width that is supported depends on the hardware and any line thicker than 1.0f }}
+\DoxyCodeLine{56         \textcolor{comment}{// requires you to enable the wideLines GPU feature.}}
+\DoxyCodeLine{57         \textcolor{keywordtype}{float} LineWidth = 1.0f;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{comment}{// The variable determines the type of face culling to use. You can disable culling, }}
+\DoxyCodeLine{60         \textcolor{comment}{// cull the front faces, cull the back faces or both}}
+\DoxyCodeLine{61         VkCullModeFlagBits CullMode = VK\_CULL\_MODE\_BACK\_BIT;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{comment}{// The frontFace variable specifies the vertex order for faces to be }}
+\DoxyCodeLine{64         \textcolor{comment}{// considered front-\/facing and can be clockwise or counterclockwise.}}
+\DoxyCodeLine{65         \textcolor{comment}{// VK\_FRONT\_FACE\_COUNTER\_CLOCKWISE specifies that a triangle with positive area is considered front-\/facing.}}
+\DoxyCodeLine{66         \textcolor{comment}{// VK\_FRONT\_FACE\_CLOCKWISE specifies that a triangle with negative area is considered front-\/facing.}}
+\DoxyCodeLine{67         \textcolor{comment}{// Any triangle which is not front-\/facing is back-\/facing, including zero-\/area triangles.}}
+\DoxyCodeLine{68         VkFrontFace FrontFace = VK\_FRONT\_FACE\_CLOCKWISE;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70         \textcolor{comment}{// todo write comments}}
+\DoxyCodeLine{71         VkBool32 DepthBiasEnable = VK\_FALSE;}
+\DoxyCodeLine{72         \textcolor{keywordtype}{float} DepthBiasConstantFactor = 0.0f;}
+\DoxyCodeLine{73         \textcolor{keywordtype}{float} DepthBiasClamp = 0.0f;}
+\DoxyCodeLine{74         \textcolor{keywordtype}{float} DepthBiasSlopeFactor = 0.0f;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{comment}{// todo write comments}}
+\DoxyCodeLine{77         VkColorComponentFlags ColorFlags = VK\_COLOR\_COMPONENT\_R\_BIT | VK\_COLOR\_COMPONENT\_G\_BIT | VK\_COLOR\_COMPONENT\_B\_BIT | VK\_COLOR\_COMPONENT\_A\_BIT;}
+\DoxyCodeLine{78         VkBool32 ColorBlendEnable = VK\_FALSE;}
+\DoxyCodeLine{79         VkBlendFactor SrcColorBlendFactor = VK\_BLEND\_FACTOR\_ONE;}
+\DoxyCodeLine{80         VkBlendFactor DstColorBlendFactor = VK\_BLEND\_FACTOR\_ZERO;}
+\DoxyCodeLine{81         VkBlendOp ColorBlendOperation = VK\_BLEND\_OP\_ADD;}
+\DoxyCodeLine{82         VkBlendFactor SrcAlphaBlendFactor = VK\_BLEND\_FACTOR\_ONE;}
+\DoxyCodeLine{83         VkBlendFactor DstAlphaBlendFactor = VK\_BLEND\_FACTOR\_ZERO;}
+\DoxyCodeLine{84         VkBlendOp AlphaBlendOperation = VK\_BLEND\_OP\_ADD;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{comment}{// todo write comments}}
+\DoxyCodeLine{87         VkBool32 LogicOperationEnable = VK\_FALSE;}
+\DoxyCodeLine{88         VkLogicOp LogicOperation = VK\_LOGIC\_OP\_COPY;}
+\DoxyCodeLine{89         \textcolor{keywordtype}{float} LogicOperationConstants[4] = \{0.0f, 0.0f, 0.0f, 0.0f\};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         VkPipelineLayout PipelineLayout;}
+\DoxyCodeLine{92     \textcolor{keyword}{public}:}
+\DoxyCodeLine{93         \textcolor{keywordtype}{void} SetDevice(\mbox{\hyperlink{class_e_v_1_1_e_v___device}{EV\_Device}}* device) \{ Device = device; \}}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         \textcolor{comment}{// Function to set info about shader. }}
+\DoxyCodeLine{96         \textcolor{comment}{// First parametr is shader file name}}
+\DoxyCodeLine{97         \textcolor{comment}{// Second paramert is shader type}}
+\DoxyCodeLine{98         \textcolor{comment}{// Third parametr is optional and set shader entry point. }}
+\DoxyCodeLine{99         \textcolor{comment}{// That means that it's possible to combine multiple fragment shaders into a }}
+\DoxyCodeLine{100         \textcolor{comment}{// single shader module and use different entry points to differentiate between their behaviors.}}
+\DoxyCodeLine{101         \textcolor{comment}{// Fourth parametr is optional and set shader specialization.}}
+\DoxyCodeLine{102         \textcolor{comment}{// It allows you to specify values for shader constants. }}
+\DoxyCodeLine{103         \textcolor{comment}{// You can use a single shader module where its behavior can be configured at pipeline creation}}
+\DoxyCodeLine{104         \textcolor{comment}{// by specifying different values for the constants used in it. This is more efficient than }}
+\DoxyCodeLine{105         \textcolor{comment}{// configuring the shader using variables at render time, because the compiler can do optimizations }}
+\DoxyCodeLine{106         \textcolor{comment}{// like eliminating if statements that depend on these values. If you don't have any constants like }}
+\DoxyCodeLine{107         \textcolor{comment}{// that, then you can set the member to nullptr, which our struct initialization does automatically.}}
+\DoxyCodeLine{108         \textcolor{keywordtype}{void} SetShaderInfo(\textcolor{keyword}{const} std::string\& shaderFileName, \textcolor{keyword}{const} VkShaderStageFlagBits\& shaderType,}
+\DoxyCodeLine{109         std::string EntryPointFunctionName = \textcolor{stringliteral}{"{}main"{}}, VkSpecializationInfo* SpecializationInfo = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{110         }
+\DoxyCodeLine{111         \textcolor{comment}{// Add one dynamic state into pipeline}}
+\DoxyCodeLine{112         \textcolor{keywordtype}{void} AddPipelineDynamicState(VkDynamicState pipelineDynamicState) \{ PipelineDynamicStates.push\_back(pipelineDynamicState); \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \textcolor{comment}{// Add dynamic states into pipeline}}
+\DoxyCodeLine{115         \textcolor{keywordtype}{void} AddPipelineDynamicStates(std::vector<VkDynamicState> pipelineDynamicStates) \{ PipelineDynamicStates.insert(PipelineDynamicStates.end(), pipelineDynamicStates.begin(), pipelineDynamicStates.end()); \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{comment}{// VK\_PRIMITIVE\_TOPOLOGY\_POINT\_LIST: points from vertices}}
+\DoxyCodeLine{118         \textcolor{comment}{// VK\_PRIMITIVE\_TOPOLOGY\_LINE\_LIST: line from every 2 vertices without reuse}}
+\DoxyCodeLine{119         \textcolor{comment}{// VK\_PRIMITIVE\_TOPOLOGY\_LINE\_STRIP: the end vertex of every line is used as start vertex for the next line}}
+\DoxyCodeLine{120         \textcolor{comment}{// VK\_PRIMITIVE\_TOPOLOGY\_TRIANGLE\_LIST: triangle from every 3 vertices without reuse}}
+\DoxyCodeLine{121         \textcolor{comment}{// VK\_PRIMITIVE\_TOPOLOGY\_TRIANGLE\_STRIP: the second and third vertex of every triangle are used as first two vertices of the next triangle}}
+\DoxyCodeLine{122         \textcolor{comment}{// By default setted to VK\_PRIMITIVE\_TOPOLOGY\_TRIANGLE\_LIST}}
+\DoxyCodeLine{123         \textcolor{keywordtype}{void} SetTopology(VkPrimitiveTopology topology) \{ Topology = topology; \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{comment}{// If you set the BreakTopology member to VK\_TRUE, then it's possible to break up lines and triangles in the \_STRIP }}
+\DoxyCodeLine{126         \textcolor{comment}{// topology modes by using a special index of 0xFFFF or 0xFFFFFFFF.}}
+\DoxyCodeLine{127         \textcolor{comment}{// By default setted to false}}
+\DoxyCodeLine{128         \textcolor{keywordtype}{void} SetBreakTopology(VkBool32 breakTopology) \{ BreakTopology = breakTopology; \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130         \textcolor{comment}{// If set to VK\_TRUE, then fragments that are beyond the near and far planes are clamped to them as opposed to }}
+\DoxyCodeLine{131         \textcolor{comment}{// discarding them. This is useful in some special cases like shadow maps. }}
+\DoxyCodeLine{132         \textcolor{comment}{// Using this requires enabling a GPU feature.}}
+\DoxyCodeLine{133         \textcolor{keywordtype}{void} SetDepthClampEnable(VkBool32 depthClampEnable) \{ DepthClampEnable = depthClampEnable; \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \textcolor{comment}{// If set to VK\_TRUE, then geometry never passes through the rasterizer stage. }}
+\DoxyCodeLine{136         \textcolor{comment}{// This basically disables any output to the framebuffer}}
+\DoxyCodeLine{137         \textcolor{keywordtype}{void} SetRasterizerDisable(VkBool32 rasterizerDisable) \{ RasterizerDisable = rasterizerDisable; \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139         \textcolor{comment}{// VK\_POLYGON\_MODE\_FILL: fill the area of the polygon with fragments}}
+\DoxyCodeLine{140         \textcolor{comment}{// VK\_POLYGON\_MODE\_LINE: polygon edges are drawn as lines}}
+\DoxyCodeLine{141         \textcolor{comment}{// VK\_POLYGON\_MODE\_POINT: polygon vertices are drawn as points}}
+\DoxyCodeLine{142         \textcolor{comment}{// Using any mode other than fill requires enabling the fillModeNonSolid GPU feature }}
+\DoxyCodeLine{143         \textcolor{keywordtype}{void} SetPolygonMode(VkPolygonMode polygonMode) \{ PolygonMode = polygonMode; \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{comment}{// It describes the thickness of lines in terms of number of fragments. }}
+\DoxyCodeLine{146         \textcolor{comment}{// The maximum line width that is supported depends on the hardware and any line thicker than 1.0f }}
+\DoxyCodeLine{147         \textcolor{comment}{// requires you to enable the wideLines GPU feature}}
+\DoxyCodeLine{148         \textcolor{keywordtype}{void} SetLineWidth(\textcolor{keywordtype}{float} lineWidth) \{ LineWidth = lineWidth; \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{comment}{// The variable determines the type of face culling to use. You can disable culling, }}
+\DoxyCodeLine{151         \textcolor{comment}{// cull the front faces, cull the back faces or both}}
+\DoxyCodeLine{152         \textcolor{keywordtype}{void} SetCullMode(VkCullModeFlagBits cullMode) \{ CullMode = cullMode; \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154         \textcolor{comment}{// The frontFace variable specifies the vertex order for faces to be }}
+\DoxyCodeLine{155         \textcolor{comment}{// considered front-\/facing and can be clockwise or counterclockwise.}}
+\DoxyCodeLine{156         \textcolor{comment}{// VK\_FRONT\_FACE\_COUNTER\_CLOCKWISE specifies that a triangle with positive area is considered front-\/facing.}}
+\DoxyCodeLine{157         \textcolor{comment}{// VK\_FRONT\_FACE\_CLOCKWISE specifies that a triangle with negative area is considered front-\/facing.}}
+\DoxyCodeLine{158         \textcolor{comment}{// Any triangle which is not front-\/facing is back-\/facing, including zero-\/area triangles.}}
+\DoxyCodeLine{159         \textcolor{keywordtype}{void} SetFrontFace(VkFrontFace frontFace) \{ FrontFace = frontFace; \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \textcolor{comment}{// todo write comments}}
+\DoxyCodeLine{162         \textcolor{keywordtype}{void} SetDepthBiasEnable(VkBool32 depthBiasEnable) \{ DepthBiasEnable = depthBiasEnable; \};}
+\DoxyCodeLine{163         \textcolor{keywordtype}{void} SetDepthBiasConstantFactor(\textcolor{keywordtype}{float} depthBiasConstantFactor) \{ DepthBiasConstantFactor = depthBiasConstantFactor; \};}
+\DoxyCodeLine{164         \textcolor{keywordtype}{void} SetDepthBiasClamp(\textcolor{keywordtype}{float} depthBiasClamp) \{ DepthBiasClamp = depthBiasClamp; \};}
+\DoxyCodeLine{165         \textcolor{keywordtype}{void} SetDepthBiasSlopeFactor(\textcolor{keywordtype}{float} depthBiasSlopeFactor) \{ DepthBiasSlopeFactor = depthBiasSlopeFactor; \};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \textcolor{comment}{// Enable color blending and set flags with color components}}
+\DoxyCodeLine{168         \textcolor{keywordtype}{void} SetColorBlendEnable(VkBool32 colorBlendEnable, VkColorComponentFlags colorFlags) }
+\DoxyCodeLine{169         \{ ColorBlendEnable = colorBlendEnable; ColorFlags = colorFlags; \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171         \textcolor{comment}{// Set color blending. First parametr is source color factor. Second is destination color factor}}
+\DoxyCodeLine{172         \textcolor{comment}{// Third parametr is color blending option}}
+\DoxyCodeLine{173         \textcolor{keywordtype}{void} SetColorBlending(VkBlendFactor srcColorBlendFactor, VkBlendFactor dstColorBlendFactor, VkBlendOp colorBlendOperation)}
+\DoxyCodeLine{174         \{ SrcColorBlendFactor = srcColorBlendFactor; DstColorBlendFactor = dstColorBlendFactor; ColorBlendOperation = colorBlendOperation; \}}
+\DoxyCodeLine{175         }
+\DoxyCodeLine{176         \textcolor{comment}{// Set alpha blending. First parametr is source alpha factor. Second is destination alpha factor}}
+\DoxyCodeLine{177         \textcolor{comment}{// Third parametr is alpha blending option}}
+\DoxyCodeLine{178         \textcolor{keywordtype}{void} SetAlphaBlending(VkBlendFactor srcAlphaBlendFactor, VkBlendFactor dstAlphaBlendFactor, VkBlendOp alphaBlendOperation)}
+\DoxyCodeLine{179         \{ SrcAlphaBlendFactor = srcAlphaBlendFactor; DstAlphaBlendFactor = dstAlphaBlendFactor; AlphaBlendOperation = alphaBlendOperation; \}}
+\DoxyCodeLine{180         }
+\DoxyCodeLine{181         \textcolor{comment}{// todo write comments}}
+\DoxyCodeLine{182         \textcolor{keywordtype}{void} SetLogicOperationEnable(VkBool32 logicOperationEnable) \{ LogicOperationEnable = logicOperationEnable; \}}
+\DoxyCodeLine{183         \textcolor{keywordtype}{void} SetLogicOperation(VkLogicOp logicOperation) \{ LogicOperation = logicOperation; \}}
+\DoxyCodeLine{184         \textcolor{keywordtype}{void} SetLogicOperationConstant(\textcolor{keywordtype}{int} constNum, \textcolor{keywordtype}{float} constValue) \{ LogicOperationConstants[constNum] = constValue; \}}
+\DoxyCodeLine{185         \textcolor{keywordtype}{void} SetLogicOperationConstants(\textcolor{keywordtype}{float} constValue0, \textcolor{keywordtype}{float} constValue1, \textcolor{keywordtype}{float} constValue2, \textcolor{keywordtype}{float} constValue3) }
+\DoxyCodeLine{186         \{ LogicOperationConstants[0] = constValue0; LogicOperationConstants[1] = constValue1; LogicOperationConstants[2] = constValue2; LogicOperationConstants[3] = constValue3; \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_v_1_1_e_v___graphics_pipeline_a841178c3a38b6a73b01475a299dc2fde}{Create}}();}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         \textcolor{keywordtype}{void} Destroy();}
+\DoxyCodeLine{191     \};}
+\DoxyCodeLine{192 \} }
+
+\end{DoxyCode}

@@ -1,0 +1,57 @@
+\hypertarget{_e_v___instance_8h_source}{}\doxysection{EV\+\_\+\+Instance.\+h}
+\label{_e_v___instance_8h_source}\index{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Instance.h@{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Instance.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}EV\_Classes.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}EV\_Functions.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }EV}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{15     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_v_1_1_e_v___instance}{EV\_Instance}}}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17     \textcolor{keyword}{private}:}
+\DoxyCodeLine{18         VkInstance VulkanInstance;}
+\DoxyCodeLine{19         std::vector<const char*> RequiredExtensions;}
+\DoxyCodeLine{20         std::vector<const char*> RequiredValidationLayers;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{comment}{// Useless in release mode. Put inside ifndef}}
+\DoxyCodeLine{23         VkDebugUtilsMessageSeverityFlagsEXT DebugMessengerSeverityFlags = VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_VERBOSE\_BIT\_EXT | }
+\DoxyCodeLine{24         VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_INFO\_BIT\_EXT | VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_WARNING\_BIT\_EXT | }
+\DoxyCodeLine{25         VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_ERROR\_BIT\_EXT;}
+\DoxyCodeLine{26         \textcolor{comment}{// Useless in release mode. Put inside ifndef}}
+\DoxyCodeLine{27         VkDebugUtilsMessageTypeFlagsEXT DebugMessengerMessageTypeFlags = VK\_DEBUG\_UTILS\_MESSAGE\_TYPE\_GENERAL\_BIT\_EXT | }
+\DoxyCodeLine{28         VK\_DEBUG\_UTILS\_MESSAGE\_TYPE\_VALIDATION\_BIT\_EXT | VK\_DEBUG\_UTILS\_MESSAGE\_TYPE\_PERFORMANCE\_BIT\_EXT;}
+\DoxyCodeLine{29         \textcolor{comment}{// Useless in release mode. Put inside ifndef}}
+\DoxyCodeLine{30         PFN\_vkDebugUtilsMessengerCallbackEXT DebugMessengerCallback = EV::EV\_DefaultValidationLayersCallback;}
+\DoxyCodeLine{31         \textcolor{comment}{// Useless in release mode. Put inside ifndef}}
+\DoxyCodeLine{32         VkDebugUtilsMessengerEXT DebugMessenger;  }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35         \textcolor{keywordtype}{bool} IsCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} CreateDebugMessenger(\textcolor{keyword}{const} VkDebugUtilsMessengerCreateInfoEXT\& debugMessengerCreateInfo);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{public}:}
+\DoxyCodeLine{40         VkInstance* GetVkInstance() \{\textcolor{keywordflow}{return} \&VulkanInstance;\}}
+\DoxyCodeLine{41         std::vector<const char*> GetRequiredExtensions() \{ \textcolor{keywordflow}{return} RequiredExtensions; \}}
+\DoxyCodeLine{42         std::vector<const char*> GetRequiredValidationLayers() \{ \textcolor{keywordflow}{return} RequiredValidationLayers; \}}
+\DoxyCodeLine{43         std::vector<VkExtensionProperties> GetAvailableExtensions();}
+\DoxyCodeLine{44         std::vector<VkLayerProperties> GetAvailableValidationLayers();}
+\DoxyCodeLine{45         }
+\DoxyCodeLine{47         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_v_1_1_e_v___instance_a3f875a43cb1b39c364900ddc4befc29d}{GetIsCreated}}() \{ \textcolor{keywordflow}{return} IsCreated; \}}
+\DoxyCodeLine{48         \textcolor{keywordtype}{void} AddRequiredExtension(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* requiredExtension) \{ RequiredExtensions.push\_back(requiredExtension); \};}
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} AddRequiredExtensions(\textcolor{keyword}{const} std::vector<const char*>\& requiredExtensions) \{ RequiredExtensions.insert(RequiredExtensions.end(), requiredExtensions.begin(), requiredExtensions.end()); \};}
+\DoxyCodeLine{50         \textcolor{keywordtype}{void} AddRequiredValidationLayer(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* requiredValidationLayer) \{ RequiredValidationLayers.push\_back(requiredValidationLayer); \};}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} AddRequiredValidationLayers(\textcolor{keyword}{const} std::vector<const char*>\& requiredValidationLayers) \{ RequiredValidationLayers.insert(RequiredValidationLayers.end(), requiredValidationLayers.begin(), requiredValidationLayers.end()); \};}
+\DoxyCodeLine{52         }
+\DoxyCodeLine{53         \textcolor{keywordtype}{void} SetDebugMessengerSeverityFlags(VkDebugUtilsMessageSeverityFlagsEXT debugMessengerSeverityFlags ) \{ DebugMessengerSeverityFlags = debugMessengerSeverityFlags; \}}
+\DoxyCodeLine{54         \textcolor{keywordtype}{void} SetDebugMessengerMessageTypeFlags(VkDebugUtilsMessageTypeFlagsEXT debugMessengerMessageTypeFlags) \{ DebugMessengerMessageTypeFlags = debugMessengerMessageTypeFlags; \}}
+\DoxyCodeLine{55         \textcolor{keywordtype}{void} SetDebugMessengerCallback(PFN\_vkDebugUtilsMessengerCallbackEXT debugMessengerCallback) \{ DebugMessengerCallback = debugMessengerCallback; \}}
+\DoxyCodeLine{56         }
+\DoxyCodeLine{57         \textcolor{keywordtype}{void} Create();}
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} Destroy();}
+\DoxyCodeLine{59     \};}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}

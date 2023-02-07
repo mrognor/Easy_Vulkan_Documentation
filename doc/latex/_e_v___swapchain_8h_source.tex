@@ -1,0 +1,115 @@
+\hypertarget{_e_v___swapchain_8h_source}{}\doxysection{EV\+\_\+\+Swapchain.\+h}
+\label{_e_v___swapchain_8h_source}\index{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Swapchain.h@{C:/Users/timur/Desktop/Easy\_Vulkan/EV\_Swapchain.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}EV\_Classes.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}EV\_Device.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}EV\_Window.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }EV}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_v_1_1_e_v___swapchain}{EV\_Swapchain}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11     \textcolor{keyword}{private}:}
+\DoxyCodeLine{12         \mbox{\hyperlink{class_e_v_1_1_e_v___device}{EV\_Device}}* Device = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{13         \mbox{\hyperlink{class_e_v_1_1_e_v___window}{EV\_Window}}* Window = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         \textcolor{comment}{// The imageArrayLayers specifies the amount of layers each image consists of. }}
+\DoxyCodeLine{16         \textcolor{comment}{// This is always 1 unless you are developing a stereoscopic 3D application.}}
+\DoxyCodeLine{17         \textcolor{comment}{// Vulkan variable to set value in swapchain create info}}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} SwapchainImageArrayLayers = 1;}
+\DoxyCodeLine{19         }
+\DoxyCodeLine{20         \textcolor{comment}{// The imageUsage bit field specifies what kind of operations we'll use the images in the swap chain for. }}
+\DoxyCodeLine{21         \textcolor{comment}{// It is also possible that you'll render images to a separate image first to perform operations }}
+\DoxyCodeLine{22         \textcolor{comment}{// like post-\/processing. In that case you may use a value like VK\_IMAGE\_USAGE\_TRANSFER\_DST\_BIT instead }}
+\DoxyCodeLine{23         \textcolor{comment}{// and use a memory operation to transfer the rendered image to a swap chain image.}}
+\DoxyCodeLine{24         \textcolor{comment}{// Vulkan variable to set value in swapchain create info}}
+\DoxyCodeLine{25         \textcolor{comment}{// By default set to VK\_IMAGE\_USAGE\_COLOR\_ATTACHMENT\_BIT}}
+\DoxyCodeLine{26         VkImageUsageFlags SwapchainImageUsage = VK\_IMAGE\_USAGE\_COLOR\_ATTACHMENT\_BIT;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         \textcolor{comment}{// Bool variable to store info about swapchain transform enable}}
+\DoxyCodeLine{29         \textcolor{keywordtype}{bool} IsSwapchainTransformEnabled = \textcolor{keyword}{false};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{comment}{// Variable to store user defined transform}}
+\DoxyCodeLine{32         VkSurfaceTransformFlagBitsKHR SwapchainTransform;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{// Swapchain alpha channel}}
+\DoxyCodeLine{35         VkCompositeAlphaFlagBitsKHR SwapchainAlphaFlag = VK\_COMPOSITE\_ALPHA\_OPAQUE\_BIT\_KHR;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{comment}{// Is swapchain clipped}}
+\DoxyCodeLine{38         VkBool32 SwapchainClipped = VK\_TRUE;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         VkSwapchainKHR OldSwapchain = VK\_NULL\_HANDLE;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{comment}{// VkSwapchain itself}}
+\DoxyCodeLine{43         VkSwapchainKHR Swapchain;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{comment}{// Images from swapchain}}
+\DoxyCodeLine{46         std::vector<VkImage> SwapchainImages;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{// Resolution of images in swapchain}}
+\DoxyCodeLine{49         VkExtent2D SwapchainExtent;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{comment}{// Image format in swapchain}}
+\DoxyCodeLine{52         VkFormat SwapchainImageFormat;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \textcolor{comment}{// Image viewss in swapchain}}
+\DoxyCodeLine{55         std::vector<VkImageView> SwapchainImageViews;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// Image view type. By default set to VK\_IMAGE\_VIEW\_TYPE\_2D}}
+\DoxyCodeLine{58         VkImageViewType ImageViewType = VK\_IMAGE\_VIEW\_TYPE\_2D;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{comment}{// Image view components swizzle. Red, green, blue, alpha. By default all set to VK\_COMPONENT\_SWIZZLE\_IDENTITY}}
+\DoxyCodeLine{61         VkComponentSwizzle ImageViewComponentSwizzles[4] = \{VK\_COMPONENT\_SWIZZLE\_IDENTITY, VK\_COMPONENT\_SWIZZLE\_IDENTITY, VK\_COMPONENT\_SWIZZLE\_IDENTITY, VK\_COMPONENT\_SWIZZLE\_IDENTITY\};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         VkSurfaceFormatKHR (*PickWindowSurfaceFormat)(std::vector<VkSurfaceFormatKHR>) = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{64         VkPresentModeKHR (*PickWindowSurfacePresentationMode)(std::vector<VkPresentModeKHR>) = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{65     \textcolor{keyword}{public}:}
+\DoxyCodeLine{66         \textcolor{keywordtype}{void} SetDevice(\mbox{\hyperlink{class_e_v_1_1_e_v___device}{EV\_Device}}* device) \{ Device = device; \}}
+\DoxyCodeLine{67         \textcolor{keywordtype}{void} SetWindow(\mbox{\hyperlink{class_e_v_1_1_e_v___window}{EV\_Window}}* window) \{ Window = window; \}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \textcolor{comment}{// The imageArrayLayers specifies the amount of layers each image consists of. }}
+\DoxyCodeLine{70         \textcolor{comment}{// This is always 1 unless you are developing a stereoscopic 3D application.}}
+\DoxyCodeLine{71         \textcolor{comment}{// Vulkan variable to set value in swapchain create info}}
+\DoxyCodeLine{72         \textcolor{keywordtype}{void} SetSwapchainImageArrayLayers(\textcolor{keywordtype}{int} swapchainImageArrayLayers) \{ SwapchainImageArrayLayers = swapchainImageArrayLayers; \}}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{comment}{// The imageUsage bit field specifies what kind of operations we'll use the images in the swap chain for. }}
+\DoxyCodeLine{75         \textcolor{comment}{// It is also possible that you'll render images to a separate image first to perform operations }}
+\DoxyCodeLine{76         \textcolor{comment}{// like post-\/processing. In that case you may use a value like VK\_IMAGE\_USAGE\_TRANSFER\_DST\_BIT instead }}
+\DoxyCodeLine{77         \textcolor{comment}{// and use a memory operation to transfer the rendered image to a swap chain image.}}
+\DoxyCodeLine{78         \textcolor{comment}{// Vulkan variable to set value in swapchain create info}}
+\DoxyCodeLine{79         \textcolor{comment}{// By default set to VK\_IMAGE\_USAGE\_COLOR\_ATTACHMENT\_BIT}}
+\DoxyCodeLine{80         \textcolor{keywordtype}{void} SetSwapchainImageUsage(VkImageUsageFlags swapchainImageUsage) \{ SwapchainImageUsage = swapchainImageUsage; \}}
+\DoxyCodeLine{81         }
+\DoxyCodeLine{82         \textcolor{comment}{// Set function to choose window surface format. Disabled by default. Set to nullptr to disable}}
+\DoxyCodeLine{83         \textcolor{keywordtype}{void} SetPickWindowSurfaceFormatFunc(VkSurfaceFormatKHR (*pickWindowSurfaceFormat)(std::vector<VkSurfaceFormatKHR>)) \{ PickWindowSurfaceFormat = pickWindowSurfaceFormat; \}}
+\DoxyCodeLine{84         }
+\DoxyCodeLine{85         \textcolor{comment}{// Set function to choose window surface presentation mode. Disabled by default. Set to nullptr to disable}}
+\DoxyCodeLine{86         \textcolor{keywordtype}{void} SetPickWindowSurfacePresentationModeFunc(VkPresentModeKHR (*pickWindowSurfacePresentationMode)(std::vector<VkPresentModeKHR>)) \{ PickWindowSurfacePresentationMode = pickWindowSurfacePresentationMode; \}}
+\DoxyCodeLine{87         }
+\DoxyCodeLine{88         \textcolor{comment}{// Set swapchain transform support. If second parametr set to true it will be disable transform. }}
+\DoxyCodeLine{89         \textcolor{keywordtype}{void} SetSwapchainTransform(VkSurfaceTransformFlagBitsKHR swapchainTransform, \textcolor{keywordtype}{bool} disable = \textcolor{keyword}{false}); }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         \textcolor{comment}{// Set swapchain alpha flag}}
+\DoxyCodeLine{92         \textcolor{keywordtype}{void} SetSwapchainAlphaFlag(VkCompositeAlphaFlagBitsKHR swapchainAlphaFlag) \{ SwapchainAlphaFlag = swapchainAlphaFlag; \}}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         \textcolor{comment}{// Set is swapchain clipped}}
+\DoxyCodeLine{95         \textcolor{keywordtype}{void} SetSwapchainClipped(VkBool32 swapchainClipped) \{ SwapchainClipped = swapchainClipped; \}}
+\DoxyCodeLine{96         \textcolor{keywordtype}{void} SetOldSwapchain(VkSwapchainKHR oldSwapchain) \{ OldSwapchain = oldSwapchain; \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         \textcolor{comment}{// Set image view component swizzle by channel. 0 is for red, 1 is for green, 2 is for blue, 3 is for alpha. }}
+\DoxyCodeLine{99         \textcolor{comment}{// By default all set to VK\_COMPONENT\_SWIZZLE\_IDENTITY}}
+\DoxyCodeLine{100         \textcolor{keywordtype}{void} SetImageViewComponentSwizzle(\textcolor{keywordtype}{int} channel, VkComponentSwizzle componentSwizzle) \{ ImageViewComponentSwizzles[channel] = componentSwizzle; \}}
+\DoxyCodeLine{101         }
+\DoxyCodeLine{102         VkSwapchainKHR* GetSwapchain() \{ \textcolor{keywordflow}{return} \&Swapchain; \}}
+\DoxyCodeLine{103         VkExtent2D GetSwapchainExtent() \{ \textcolor{keywordflow}{return} SwapchainExtent; \}}
+\DoxyCodeLine{104         VkFormat GetSwapchainImageFormat() \{ \textcolor{keywordflow}{return} SwapchainImageFormat; \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{keywordtype}{void} Create();}
+\DoxyCodeLine{107         \textcolor{keywordtype}{void} Destroy();}
+\DoxyCodeLine{108     \};}
+\DoxyCodeLine{109 \}}
+
+\end{DoxyCode}
